@@ -1,0 +1,16 @@
+
+<div class="container">
+    <h2 class="title">Чат</h2>
+    @if (messages.length == 0) {
+        <p>Сообщений нет</p>
+    } @else {
+        @for (message of messages; track message.id) {
+            <app-chat-message name="{{message.name}}" text="{{message.text}}"></app-chat-message>
+        }
+    }
+    <div class="input">
+        <input type="text" name="name" id="name" placeholder="Имя" #nameInput>
+        <input type="text" name="msg" id="msg" placeholder="Сообщение"  #textInput>
+        <button (click)="handleSubmit()">Отправить</button>
+    </div>
+</div>
